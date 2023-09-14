@@ -55,3 +55,28 @@ input[type="submit"]:hover {
     background-color: green; /* Color de fondo verde más oscuro al pasar el ratón */
 }
   
+/* Estilo para ocultar inicialmente las preguntas y respuestas */
+.hidden {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.5s, max-height 0.5s;
+}
+
+/* Estilo para mostrar gradualmente las preguntas y respuestas */
+.show {
+  opacity: 1;
+  max-height: 1000px;
+  transition: opacity 0.5s, max-height 0.5s;
+}
+
+ /* Estilo para los recuadros de pregunta */
+ fieldset {
+  border: 2px solid green; /* Borde verde */
+  border-radius: 10px; /* Bordes redondeados */
+  padding: 20px; /* Espaciado interno */
+  margin-bottom: 20px; /* Espaciado inferior entre preguntas */
+  background-color:  rgba(242, 242, 242, 0.1); /* Color de fondo con transparencia */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  opacity: 8s;
+}

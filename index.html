@@ -9,12 +9,28 @@
   <title>Cuestionario de Ciberseguridad</title>
 
 </head>
+<script>
+  // JavaScript para mostrar gradualmente las preguntas y el botón al cargar la página
+  document.addEventListener("DOMContentLoaded", function() {
+      var questions = document.querySelectorAll(".hidden");
+      var submitButton = document.querySelector("input[type='submit']");
+
+      setTimeout(function() {
+          questions.forEach(function(question) {
+              question.classList.remove("hidden");
+              question.classList.add("show");
+          });
+          submitButton.classList.remove("hidden");
+          submitButton.classList.add("show");
+      }, 750); // Retardo de 750ms para mostrar gradualmente
+  });
+</script>
 <body>
   <h1>Cuestionario de Ciberseguridad</h1>
   <form action="procesar_respuestas.php" method="post">
       <!-- Pregunta 1 -->
-      <fieldset>
-          <legend>Pregunta 1: ¿Qué es un virus informático?</legend>
+      <fieldset class="hidden">
+          <legend class="show">Pregunta 1: ¿Qué es un virus informático?</legend>
           <input type="radio" id="pregunta1a" name="pregunta1" value="a">
           <label for="pregunta1a">a) Un programa que puede infectar y dañar archivos y sistemas.</label>
 
@@ -26,8 +42,8 @@
       </fieldset>
 <br>
       <!-- Pregunta 2 -->
-      <fieldset>
-          <legend>Pregunta 2: ¿Qué es el phishing?</legend>
+      <fieldset class="hidden">
+        <legend class="show">Pregunta 2: ¿Qué es el phishing?</legend>
           <input type="radio" id="pregunta2a" name="pregunta2" value="a">
           <label for="pregunta2a">a) Un ataque informático que utiliza malware.</label>
 
@@ -39,8 +55,8 @@
       </fieldset>
 <br>
       <!-- Pregunta 3 -->
-      <fieldset>
-          <legend>Pregunta 3: ¿Cuál es una medida básica de seguridad para contraseñas?</legend>
+      <fieldset class="hidden">
+        <legend class="show">Pregunta 3: ¿Cuál es una medida básica de seguridad para contraseñas?</legend>
           <input type="radio" id="pregunta3a" name="pregunta3" value="a">
           <label for="pregunta3a">a) Usar la misma contraseña para todas las cuentas.</label>
 
@@ -51,7 +67,9 @@
           <label for="pregunta3c">c) Compartir contraseñas con amigos.</label>
       </fieldset>
 <br>
-      <input type="submit" value="Enviar respuestas">
+      <input class="hidden" type="submit" value="Enviar respuestas">
   </form>
+
+  
 </body>
 </html>
