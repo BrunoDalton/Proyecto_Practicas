@@ -12,6 +12,21 @@ body {
 font-size: large;
  }
 
+ /* Estilo para el campo de entrada de edad */
+.styled-input {
+  background-color: #1d271c; /* Color de fondo gris claro */
+  border: 2px solid green; /* Borde azul */
+  border-radius: 5px; /* Bordes redondeados */
+  padding: 10px; /* Espaciado interno */
+  font-size: 16px; /* Tamaño de fuente */
+  color: white; /* Color de texto */
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Estilo para el campo de entrada de edad cuando está enfocado (seleccionado) */
+#edad :focus {
+  border-color: green;
+}
 
   input[type="radio"] {
     display: block;
