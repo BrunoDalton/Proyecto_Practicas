@@ -4,56 +4,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cuestionario de Ciberseguridad</title>
-<link rel="stylesheet" href="style.css">
-<head>
-  <title>Cuestionario de Ciberseguridad</title>
-
+  <link rel="stylesheet" href="style.css">
 </head>
-<script>
-  // JavaScript para mostrar gradualmente las preguntas y el botón al cargar la página
-  document.addEventListener("DOMContentLoaded", function() {
-      var questions = document.querySelectorAll(".hidden");
-      var submitButton = document.querySelector("input[type='submit']");
-
-      setTimeout(function() {
-          questions.forEach(function(question) {
-              question.classList.remove("hidden");
-              question.classList.add("show");
-          });
-          submitButton.classList.remove("hidden");
-          submitButton.classList.add("show");
-      }, 750); // Retardo de 750ms para mostrar gradualmente
-  });
-
-  document.addEventListener("DOMContentLoaded", function() {
-    var edadInput = document.getElementById("edad");
-
-    edadInput.addEventListener("input", function() {
-      // Obtener el valor actual del campo de edad
-      var valorEdad = this.value;
-
-      // Eliminar cualquier carácter no numérico
-      valorEdad = valorEdad.replace(/\D/g, '');
-
-      // Limitar la longitud a 2 caracteres
-      if (valorEdad.length > 2) {
-        valorEdad = valorEdad.slice(0, 2);
-      }
-
-      // Actualizar el valor del campo de edad
-      this.value = valorEdad;
-    });
-  });
-
-  document.addEventListener("DOMContentLoaded", function() {
+<body>
+  <h1>Cuestionario de Ciberseguridad</h1>
+  <form action="procesar_respuestas.php" method="post" id="cuestionario-form">
+    <!-- Aquí se generarán las preguntas dinámicamente desde JavaScript -->
+  </form>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
       var form = document.getElementById("cuestionario-form");
 
       // Carga el archivo cuestionario.js
-      var script = document.createElement("Cuestioario.js");
+      var script = document.createElement("script"); // Cambia "Cuestioario.js" a "script"
       script.src = "Cuestionario.js"; // Asegúrate de que la ruta sea correcta
       script.async = false; // Espera a que se cargue antes de continuar
       script.onload = function() {
-        // Usa las preguntas del archivo cuestionario.js para generar el formulario
+        var preguntas = cuestionario; // Cambia "Cuestionario" a "cuestionario"
+        
         preguntas.forEach(function(pregunta) {
           var fieldset = document.createElement("fieldset");
           var legend = document.createElement("legend");
@@ -95,61 +64,6 @@
       // Agrega el script al final del cuerpo para cargar el cuestionario
       document.body.appendChild(script);
     });
-</script>
-<body>
-  <h1>Cuestionario de Ciberseguridad</h1>
-  <form action="procesar_respuestas.php" method="post">
-   <!-- Datos Personales 1 -->
-<fieldset class="hidden">
-  <legend class="show">Datos Personales 1: ¿Cuál es tu edad?</legend>
-  <input type="number" id="edad" name="edad" placeholder="Ingresa tu edad" required class="styled-input" min="14" max="90">
-</fieldset>
-<br>
-  <form action="procesar_respuestas.php" method="post">
-      <!-- Datos Personales 2 -->
-      <fieldset class="hidden">
-          <legend class="show">Datos Personales 2: Sexo </legend>
-          <input type="radio" id="datos2a" name="datos2" value="a">
-          <label for="datos2a">a) Masculino </label>
-
-          <input type="radio" id="datos2b" name="datos2" value="b">
-          <label for="datos2b">b) Femenino </label>
-      </fieldset>
-<br>
-<!-- Pregunta 1 -->
-<fieldset class="hidden">
-  <legend class="show">Pregunta 1: Tenía ud. Conocimiento sobre lo que es la Ciber Seguridad o toma recién conocimiento de lo que es la Ciber Seguridad?</legend>
-    <input type="radio" id="pregunta1a" name="pregunta1" value="a">
-    <label for="pregunta1a">a) Tenia Conocimiento.</label>
-
-    <input type="radio" id="pregunta1b" name="pregunta1" value="b">
-    <label for="pregunta1b">b) Recien tomo conocimiento.</label>
-</fieldset>
-<br>
-    <!-- Pregunta 2 -->
-    <fieldset class="hidden">
-      <legend class="show">Pregunta 2: Al momento de Conectarse con su dispositivo electrónico ya sea en internet o a Wi Fi Ud. Diría que…. </legend>
-        <input type="radio" id="pregunta2a" name="pregunta2" value="a">
-        <label for="pregunta2a">a) Nunca Tiene en cuenta si el sitio es seguro o no.</label>
-
-        <input type="radio" id="pregunta2b" name="pregunta2" value="b">
-        <label for="pregunta2b">b) A veces tiene en cuenta si el sitio es seguro o no.</label>
-
-        <input type="radio" id="pregunta2c" name="pregunta2" value="c">
-        <label for="pregunta2c">c) Siempre Tengo en cuenta si el Sitio es Seguro o No .</label>
-    </fieldset>    
-<br>
-<!-- Pregunta 3 -->
-<fieldset class="hidden">
-  <legend class="show">Pregunta 3: Ahora le voy a pedir que evalue que tan importante es para ud. La ciber seguridad y le voy a pedir que lo haga como en el colegio donde 1 nada importante y 10 totalmente importante. Que puntaje le asigna ud? </legend>
-  <input type="number" id="pregunta3" name="pregunta3" placeholder="Ingrese su puntaje" required class="styled-input" min="1" max="10">
-
-</fieldset>    
-<br>
-      <input class="hidden" type="submit" value="Enviar respuestas">
-  </form>
-  <script>document.body.appendChild(script);</script>
-
-  
+  </script>
 </body>
 </html>
