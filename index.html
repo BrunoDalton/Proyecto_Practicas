@@ -12,58 +12,6 @@
     <!-- Aquí se generarán las preguntas dinámicamente desde JavaScript -->
   </form>
   
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      var form = document.getElementById("cuestionario-form");
-
-      // Carga el archivo cuestionario.js
-      var script = document.createElement("script"); // Cambia "Cuestioario.js" a "script"
-      script.src = "Cuestionario.js"; // Asegúrate de que la ruta sea correcta
-      script.async = false; // Espera a que se cargue antes de continuar
-      script.onload = function() {
-        var preguntas = cuestionario; // Cambia "Cuestionario" a "cuestionario"
-        
-        preguntas.forEach(function(pregunta) {
-          var fieldset = document.createElement("fieldset");
-          var legend = document.createElement("legend");
-          legend.textContent = pregunta.pregunta;
-          fieldset.appendChild(legend);
-
-          if (pregunta.tipo === "number") {
-            var input = document.createElement("input");
-            input.type = pregunta.tipo;
-            input.id = pregunta.id;
-            input.name = pregunta.id;
-            input.placeholder = pregunta.placeholder;
-            input.required = true;
-            input.min = pregunta.min;
-            input.max = pregunta.max;
-            input.maxLength = pregunta.maxlength;
-            fieldset.appendChild(input);
-          } else if (pregunta.tipo === "radio") {
-            pregunta.opciones.forEach(function(opcion) {
-              var input = document.createElement("input");
-              input.type = pregunta.tipo;
-              input.id = pregunta.id + opcion.valor;
-              input.name = pregunta.name;
-              input.value = opcion.valor;
-
-              var label = document.createElement("label");
-              label.setAttribute("for", pregunta.id + opcion.valor);
-              label.textContent = opcion.texto;
-
-              fieldset.appendChild(input);
-              fieldset.appendChild(label);
-            });
-          }
-
-          form.appendChild(fieldset);
-        });
-      };
-
-      // Agrega el script al final del cuerpo para cargar el cuestionario
-      document.body.appendChild(script);
-    });
-  </script>
+<script  src="index.js" type="module"></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-const cuestionario = [
+export const cuestionario = [
   {
     pregunta: '¿Cuál es su edad?',
     tipo: 'number',
@@ -38,5 +38,3 @@ const cuestionario = [
   },
   // Agrega más preguntas aquí si es necesario
 ];
-
-export default cuestionario;
