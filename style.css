@@ -14,8 +14,9 @@ font-size: large;
 
  /* Estilo para el campo de entrada de edad */
 .styled-input {
-  background-color: #1d271c; /* Color de fondo gris claro */
-  border: 2px solid green; /* Borde azul */
+  
+  background-color: #1d271c; /* Color de fondo  */
+  border: 2px solid green; /* Borde green */
   border-radius: 5px; /* Bordes redondeados */
   padding: 10px; /* Espaciado interno */
   font-size: 16px; /* Tamaño de fuente */
@@ -24,8 +25,22 @@ font-size: large;
 }
 
 /* Estilo para el campo de entrada de edad cuando está enfocado (seleccionado) */
-#edad :focus {
+#edad:focus {
+  border-color: green !important;  
+}
+
+#edad {
+  color: white;
+  background-color: #1d271c;
+  text-align: center;
+  width: 50%;
   border-color: green;
+
+}
+#edad::-webkit-inner-spin-button,
+::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
 }
 
   input[type="radio"] {
@@ -40,6 +55,7 @@ font-size: large;
 
 /* Estilo base para las etiquetas de respuesta */
 label {
+  
     border: 1px solid gray;
     padding: 10px;
     margin: 5px;
@@ -53,9 +69,47 @@ input[type="radio"]:checked + label {
     border-color: green;
     transform: scale(1.05); /* Aumenta el tamaño al seleccionar */
 }
+/* Estilo para los elementos <input type="checkbox"> */
+input[type="checkbox"] {
+  display: none; /* Oculta los checkboxes originales */
+}
+
+/* Estilo base para las etiquetas de respuesta de tipo checkbox */
+input[type="checkbox"] + label {
+  border: 1px solid gray;
+  padding: 10px;
+  margin: 5px;
+  cursor: pointer;
+  display: inline-block; /* Muestra las etiquetas en línea */
+  transition: border-color 0.3s, transform 0.3s;
+}
+
+/* Estilo para las etiquetas de respuesta de tipo checkbox cuando se seleccionan */
+input[type="checkbox"]:checked + label {
+  border-color: green;
+  transform: scale(1.05); /* Aumenta el tamaño al seleccionar */
+}
+/* Estilo para el campo de entrada de texto "Otro" */
+.estilo-personalizado {
+  background-color: #1d271c; /* Color de fondo */
+  border: 2px solid green; /* Borde verde */
+  border-radius: 5px; /* Bordes redondeados */
+  padding: 10px; /* Espaciado interno */
+  font-size: 16px; /* Tamaño de fuente */
+  color: white; /* Color de texto */
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  width: auto; /* Ancho completo del campo de texto */
+  margin-top: 5px; /* Espaciado superior */
+}
+
+/* Estilo para el campo de entrada de texto "Otro" cuando está enfocado (seleccionado) */
+.estilo-personalizado:focus {
+  border-color: green !important;
+}
 
   /* Estilo para el botón de "Enviar respuestas" */
   input[type="submit"] {
+    float: inline-end;
     background-color: #4CAF50; /* Color de fondo verde */
     color: white; /* Color del texto en blanco */
     padding: 15px 20px; /* Espaciado interno para hacerlo más grande */
